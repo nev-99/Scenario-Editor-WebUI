@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Scenario Editor Prototype v0.3</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<header>
+  <h1>Scenario Editor Prototype v0.3</h1>
+  <div class="meta" id="metaText">保存済み</div>
+</header>
+
+<div class="wrap">
+  <aside class="left">
+    <div class="scene-row">
+      <label>sceneId</label>
+      <input id="sceneId" value="scene_01">
+    </div>
+
+    <div class="panel">
+      <div class="label">characters</div>
+      <div id="charList"></div>
+      <div class="row">
+        <input id="charInput" placeholder="キャラ名">
+        <button id="btnAddChar">追加</button>
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <button class="primary" id="btnAdd">ブロック追加</button>
+      <button class="danger" id="btnDelete">削除</button>
+      <button id="btnUp">↑</button>
+      <button id="btnDown">↓</button>
+    </div>
+
+    <div class="toolbar">
+      <button class="primary" id="btnExport">JSONエクスポート</button>
+      <input id="fileImport" type="file" accept="application/json">
+    </div>
+
+    <div class="list" id="blockList"></div>
+  </aside>
+
+  <main class="right">
+    <div class="panel">
+      <div class="grid">
+        <div class="label">blockId</div>
+        <input id="blockId" disabled>
+      </div>
+
+      <div class="grid">
+        <div class="label">type</div>
+        <select id="blockType">
+          <option value="dialogue">セリフ</option>
+          <option value="narration">地の文</option>
+        </select>
+      </div>
+
+      <div class="grid" id="speakerRow">
+        <div class="label">speaker</div>
+        <select id="speaker"></select>
+      </div>
+
+      <!-- 修飾ツールバー -->
+      <div class="text-toolbar">
+        <button id="btnBold"><b>B</b></button>
+        <button class="color red" data-color="#ff5555"></button>
+        <button class="color blue" data-color="#5aa9ff"></button>
+        <button class="color yellow" data-color="#ffd75a"></button>
+      </div>
+
+      <div class="grid" style="align-items:start">
+        <div class="label">text</div>
+        <textarea id="text"></textarea>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
